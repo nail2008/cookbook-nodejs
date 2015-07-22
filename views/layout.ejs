@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <link rel='stylesheet' href='/stylesheets/bootstrap.css'/>
+    <style type="text/css">
+        body {
+            padding-top: 60px;
+            padding-bottom: 40px;
+        }
+    </style>
+    <link href="stylesheets/bootstrap-responsive.css" rel="stylesheet">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="/">Microblog</a>
+
+            <div class="nav-collapse">
+                <ul class="nav">
+                    <li class="active"><a href="/">首页</a></li>
+                    <% if (!user) { %>
+                    <li><a href="/login">登入</a></li>
+                    <li><a href="/reg">注册</a></li>
+                    <% } else { %>
+                    <li><a href="/logout">登出</a></li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="container" class="container">
+    <% if (success) { %>
+    <div class="alert alert-success">
+        <%= success %>
+    </div>
+    <% } %>
+    <% if (error) { %>
+    <div class="alert alert-error">
+        <%= error %>
+    </div>
+    <% } %>
+    <%- body %>
+    <hr/>
+    <footer>
+        <p><a href="https://github.com/nail2008/cookbook-nodejs" target="_blank">cookbook-nodejs</a> 2015</p>
+    </footer>
+</div>
+</body>
+<script src="/javascripts/jquery.js"></script>
+<script src="/javascripts/bootstrap.js"></script>
+</html>
