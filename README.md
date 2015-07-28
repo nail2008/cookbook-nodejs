@@ -55,8 +55,18 @@
 
 在index中，上部为欢迎信息和登录、注册按钮，下部为说说内容展示。
 
-我们首先实现layout的导航栏，和index的欢迎页
+我们首先实现layout的导航栏，和index的欢迎页。
 
+对顶部导航栏中根据当前用户是否存在判断显示 **登录/注册** 还是显示 **登出**
+
+启动服务，并没有看到顶部导航栏，express4以后你需要这样用partials
+
+在app.js加入以下代码（当然要先 npm install express-partials --save）
+
+```javascript
+    var partials = require('express-partials'); 
+    app.use(partials()); 
+```
 
 
 
