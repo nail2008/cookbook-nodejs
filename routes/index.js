@@ -7,6 +7,7 @@ var Post = require('../models/post.js');
 
 //主页路由
 router.get('/', function(req, res, next) {
+  //查询所有的posts
   Post.get(null, function(err, posts) {
     if (err) {
       posts = [];
@@ -117,6 +118,7 @@ router.post('/post', function (req, res, next) {
   });
 });
 
+//获得用户说说
 router.get('/u/:user', function (req, res, next) {
   User.get(req.params.user, function(err, user) {
     if (!user) {
